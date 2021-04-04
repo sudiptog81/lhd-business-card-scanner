@@ -1,0 +1,37 @@
+{% extends "layouts/layout.html" %}
+
+{% block header %}
+<title>Business Card Scanner</title>
+<div class="bg-gray-light border-bottom border-gray-light">
+  <div class="container text-center py-5 mb-4">
+    <img src="https://uploads-ssl.webflow.com/5f2c6dba183e4e456dfef9ac/601bbc5b16829062d224bf9c_Asset%2018%402x.png"
+      class="w-100 img-fluid" style="filter: invert(1); max-width: 350px;" />
+    <div class="mt-3 mb-4">
+      <h1 class="h1 mb-0">Business Card Scanner</h1>
+      <h2 class="h4 text-gray font-weight-light">scan a card here</h2>
+    </div>
+    <form id="form" action="/" method="post" enctype="multipart/form-data"
+      class="form-inline d-flex align-items-center justify-content-center">
+      <input type="file" name="file" id="file" class="form-control mr-2">
+      <button class="btn btn-outline-dark" type="submit">Upload</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if emails %}
+<div class="text-gray-light text-center pt-5 mt-5">
+  {% for email in emails %}
+  <p class="lead">{{ email }}</p>
+  {% endfor %}
+</div>
+{% endif %}
+{% if numbers %}
+<div class="text-gray-light text-center pb-5 mb-5">
+  {% for number in numbers %}
+  <p class="lead">{{ number }}</p>
+  {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
